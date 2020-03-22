@@ -40,7 +40,7 @@
 			</section>
 
 		<!-- Two -->
-			<section id="two patient" class="wrapper style2" style="display: none;">
+			<section id="one_patient" class="wrapper style2 patient" style="display: none;">
 				<div class="inner">
 					<div class="box">
 						<div class="content">
@@ -48,7 +48,7 @@
 								<p>COVID-19 $Patient</p>
 								<h2>The Ledger</h2>
 							</header>
-							<form method="post" action="#">
+							<div>
 								<div class="row uniform">
 									<!-- <div class="6u 12u$(xsmall)">
 										<input type="text" name="name" id="name" value="" placeholder="Name" />
@@ -99,17 +99,17 @@
 									<!-- Break -->
 									<div class="12u$">
 										<ul class="actions">
-											<li><input type="submit" value="Send Message" /></li>
+											<li><input id="submitFeel" type="submit" value="Send Message" /></li>
 											<li><input type="reset" value="Reset" class="alt" /></li>
 										</ul>
 									</div>
 								</div>
-							</form>
+							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-			<section id="two patient" class="wrapper style2" style="display: none;">
+			<section id="two_patient" class="wrapper style2 patient" style="display: none;">
 				<div class="inner">
 					<div class="box">
 						<div class="content">
@@ -127,24 +127,8 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>Entry 1</td>
-											<td>Healthy</td>
-										</tr>
-										<tr>
-											<td>Entry 2</td>
-											<td>Unhealthy</td>
-										</tr>
-										<tr>
-											<td>Entry 3</td>
-											<td>Healthy</td>
-										</tr>
-										<tr>
-											<td>Entry 4</td>
-											<td>Unhealthy</td>
-										</tr>
-										<tr>
-											<td>Entry 5</td>
-											<td>Healthy</td>
+											<td id="TrustedDoctorName">Entry 1</td>
+											<td id="isSick">Healthy</td>
 										</tr>
 									</tbody>
 									<tfoot>
@@ -155,16 +139,16 @@
 						</div>
 					</div>
 				</div>
-			</section>	
-			<section id="two doctor" class="wrapper style2"  style="display: none;">
+			</section>
+			<section id="two_doctor" class="wrapper style2 doctor"  style="display: none;">
 				<div class="inner">
 					<div class="box">
 						<div class="content">
 							<header class="align-center">
 								<p>COVID-19 $Doctor</p>
 								<h2>The Ledger</h2>
-							</header>							
-							<form method="post" action="#">
+							</header>
+							<div action="#">
 								<div class="row uniform">
 									<!-- <div class="6u 12u$(xsmall)">
 										<input type="text" name="name" id="name" value="" placeholder="Name" />
@@ -177,7 +161,7 @@
 									<div class="6u$">
 										<div class="select-wrapper">
 											<input type="text" name="patientName" id="patientName" value="" placeholder="Patient Name"/>
-											<Label>Patient's feeling: $Healthy/$Unhealthy</Label>
+											<Label id="feeling"></Label>
 										</div>
 									</div>
 
@@ -223,58 +207,11 @@
 									<!-- Break -->
 									<div class="12u$">
 										<ul class="actions">
-											<li><input type="submit" value="Send Message" /></li>
+											<li><input type="submit" id="submitSick" value="Send Message" /></li>
 											<li><input type="reset" value="Reset" class="alt" /></li>
 										</ul>
 									</div>
 								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section id="two doctor" class="wrapper style2"  style="display: none;">
-				<div class="inner">
-					<div class="box">
-						<div class="content">
-							<header class="align-center">
-								<p>Patient's previous ledger entries</p>
-								<h2>The Ledger History</h2>
-							</header>							
-							<div class="table-wrapper">
-								<table>
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th>Description</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Entry 1</td>
-											<td>Healthy</td>
-										</tr>
-										<tr>
-											<td>Entry 2</td>
-											<td>Unhealthy</td>
-										</tr>
-										<tr>
-											<td>Entry 3</td>
-											<td>Healthy</td>
-										</tr>
-										<tr>
-											<td>Entry 4</td>
-											<td>Unhealthy</td>
-										</tr>
-										<tr>
-											<td>Entry 5</td>
-											<td>Healthy</td>
-										</tr>
-									</tbody>
-									<tfoot>
-										<tr><td colspan="2"></td></tr>
-									</tfoot>
-								</table>
 							</div>
 						</div>
 					</div>

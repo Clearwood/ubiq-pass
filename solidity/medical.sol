@@ -94,6 +94,11 @@ contract medical {
         return UserStore[msg.sender].feelsSick;
     }
 
+    function getFeelsSickPatient(address _patient) public view returns (bool feelsSick)
+    {
+        return UserStore[_patient].feelsSick;
+    }
+
     function isVerified() public view returns (bool verified)
     {
         return UserStore[msg.sender].verified;

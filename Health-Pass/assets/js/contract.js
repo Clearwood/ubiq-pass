@@ -12,11 +12,11 @@ async function initETH(){
     address = addresses[0];
     iUbi = new iWeb3.eth.Contract(
       abi,
-      '0x6cE00BDf756f3a8afD0BDFBFC49dad28C171D482', {from: address}
+      '0x7c0951cc227596e88cd70347bca461202932216b', {from: address}
     );
     cUbi = new iWeb3.eth.Contract(
       abi,
-      '0x6cE00BDf756f3a8afD0BDFBFC49dad28C171D482', {from: address}
+      '0x7c0951cc227596e88cd70347bca461202932216b', {from: address}
     );
     web3.eth.defaultAccount = web3.eth.accounts[0];
   }
@@ -36,6 +36,34 @@ function getTrustedDoctor(cb){
     });
     }
 
+function getIsSick(cb){
+        cUbi.methods.getIsSick().call()
+        .then(function(result){
+            cb(result);
+        });
+        }
+
+function getFeelsSick(cb){
+    cUbi.methods.getFeelsSick().call()
+      .then(function(result){
+          cb(result);
+          });
+          }
+
+function getFeelsSickPatient(address, cb){
+    cUbi.methods.getFeelsSickPatient(address).call()
+          .then(function(result){
+            cb(result);
+                    });
+                    }
+
+function getNameOfTrustedDoctor(cb){
+  cUbi.methods.getTrustedDoctor().call()
+  .then(function(x){
+          cb(web3.utils.toUtf8(x));
+  });
+}
+
 function getIsDoctor(cb){
     cUbi.methods.getIsDoctor().call()
     .then(function(result){
@@ -44,7 +72,15 @@ function getIsDoctor(cb){
     }
 //writing results in scoreboard
 function setFeelsSick(feelsSick){
-  iUbi.methods.setResult(value).send()
+  iUbi.methods.setFeelsSick(feelsSick).send()
+  .then(function(result){
+      console.log(result);
+  });
+}
+
+//writing results in scoreboard
+function setIsSick(isSick, address){
+  iUbi.methods.setIsSick(isSick, address).send()
   .then(function(result){
       console.log(result);
   });
@@ -79,16 +115,23 @@ function isInitialized(cb){
 
 //initalizing players result as well as nickname
 function initializeUser(){
+
   getName(function(result){
     $("#name").text("Welcome Back " + result);
   });
   getIsDoctor(function(x){
-    Doctor = x;
     if(x){
       $("#dashboard").text("Doctor Dashboard");
+      $('#two_doctor').show();
     } else {
       $("#dashboard").text("Patient Dashboard");
+      $('#one_patient').show();
+      $('#two_patient').show();
+      getNameOfTrustedDoctor(function(x){$('#TrustedDoctorName').text(x);})
+      getIsSick(function(x){
+        text = x ? "Sick" : "Healthy";
+        if(x){}$('#isSick').text(text);
+      })
     }
   });
-  initializeUserBlocks();
 }

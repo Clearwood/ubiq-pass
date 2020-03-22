@@ -74,6 +74,25 @@ const abi = [
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_patient",
+				"type": "address"
+			}
+		],
+		"name": "getFeelsSickPatient",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "feelsSick",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "getIsDoctor",
 		"outputs": [

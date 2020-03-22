@@ -260,8 +260,6 @@ var settings = {
 			$banner 	= $('.banner');
 			$category    = $('#category');
 			$preferredDoctor = $('#preferredDoctor');
-			$patient = $('#patient');
-			$doctor = $('#doctor');
 
 		// Disable animations/transitions until the page has loaded.
 			$body.addClass('is-loading');
@@ -280,15 +278,6 @@ var settings = {
 					$preferredDoctor.css("display", "none");
 				}
 			})
-
-			if(!Doctor){
-				$patient.css("display", "block");
-				$doctor.css("display", "none");
-			}
-			else{
-				$doctor.css("display", "block");
-				$patient.css("display", "none");
-			}
 
 		// Prioritize "important" elements on medium.
 			skel.on('+medium -medium', function() {
