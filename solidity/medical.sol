@@ -40,7 +40,7 @@ contract medical {
 
      function verifyMedical (address _Doctor) public onlyOwner
     {
-       UserStore[_Doctor].isDoctor = true;
+       UserStore[_Doctor].verified = true;
     }
 
      function registerUser(bytes32 _name, bool _isDoctor, address _trustedDoctor) public

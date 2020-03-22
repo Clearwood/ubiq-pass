@@ -5,6 +5,7 @@ function InitCheck(){
       initializeUser();
       activateFeelSick();
       activateUserSearch();
+      activateIsSick();
     } else {
       window.location.href = "./dashboard.html";
     }
@@ -21,9 +22,11 @@ function activateFeelSick(){
 }
 
 function activateIsSick(){
-  $("#submitSeek").click(function(x){
+  $("#submitSick").click(function(x){
     isSickStat = $("#category").val() == 2 ? true : false;
-    setIsSick(isSickStat, $('#patientName').val());
+    var patientAddress = $('#patientName').val()
+    console.log(patientAddress);
+    setIsSick(isSickStat, patientAddress);
     x.preventDefault();
     return false;
   });
@@ -35,10 +38,13 @@ function activateUserSearch(){
 
             //Disable textbox to prevent multiple submit
             $(this).attr("disabled", "disabled");
-            patientAddress = $('#patientName').val()
+            var patientAddress = $('#patientName').val()
             //Do Stuff, submit, etc..
-            feelingPat = getFeelsSickPatient(patientAddress) ? "Sick" : "Healthy";
-            $("#feeling").text("Patient's feeling:" + feelingPat);
+            getFeelsSickPatient(patientAddress, function(x){
+              console.log(x);
+              var feelingPat = x ? "Sick" : "Healthy";
+              $("#feeling").text("Patient's feeling: " + feelingPat);
+            });
             //Enable the textbox again if needed.
             $(this).removeAttr("disabled");
          }

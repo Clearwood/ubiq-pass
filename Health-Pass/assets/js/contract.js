@@ -12,11 +12,11 @@ async function initETH(){
     address = addresses[0];
     iUbi = new iWeb3.eth.Contract(
       abi,
-      '0x7c0951cc227596e88cd70347bca461202932216b', {from: address}
+      '0xb7bde5b807ba5bbf7fed74a8633ac1e7ef3eeaa2', {from: address}
     );
     cUbi = new iWeb3.eth.Contract(
       abi,
-      '0x7c0951cc227596e88cd70347bca461202932216b', {from: address}
+      '0xb7bde5b807ba5bbf7fed74a8633ac1e7ef3eeaa2', {from: address}
     );
     web3.eth.defaultAccount = web3.eth.accounts[0];
   }
