@@ -258,7 +258,7 @@ var settings = {
 			$body 		= $('body'),
 			$header 	= $('#header'),
 			$banner 	= $('.banner');
-			$patient    = $('#category');
+			$category    = $('#category');
 			$preferredDoctor = $('#preferredDoctor');
 			$patient = $('#patient');
 			$doctor = $('#doctor');
@@ -272,8 +272,8 @@ var settings = {
 				}, 100);
 			});
 
-			$patient.on('change', function(ele){
-				if($patient[0].value == "2"){
+			$category.on('change', function(ele){
+				if($category[0].value == "2"){
 					$preferredDoctor.css("display", "block");
 				}
 				else{
