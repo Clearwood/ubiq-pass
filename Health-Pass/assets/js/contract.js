@@ -56,7 +56,7 @@ function registerUser(name, isDoctor, trustedDoctor){
   iUbi.methods.registerUser(web3.utils.utf8ToHex(name), isDoctor, trustedDoctor).send()
   .then(function(result){
     console.log(result);
-    window.location.href = "/mydashboard.html";
+    window.location.href = "./mydashboard.html";
   });
 }
 
@@ -83,10 +83,12 @@ function initializeUser(){
     $("#name").text("Welcome Back " + result);
   });
   getIsDoctor(function(x){
+    Doctor = x;
     if(x){
       $("#dashboard").text("Doctor Dashboard");
     } else {
       $("#dashboard").text("Patient Dashboard");
     }
   });
+  initializeUserBlocks();
 }

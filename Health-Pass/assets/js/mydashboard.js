@@ -1,10 +1,11 @@
 //checking if user is initialized and loading data
+let Doctor;
 function InitCheck(){
   isInitialized(function(x){
     if(x){
       initializeUser();
     } else {
-      window.location.href = "/dashboard.html";
+      window.location.href = "./dashboard.html";
     }
   })
 }

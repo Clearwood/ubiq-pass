@@ -281,7 +281,7 @@ var settings = {
 				}
 			})
 
-			if(true){
+			if(!Doctor){
 				$patient.css("display", "block");
 				$doctor.css("display", "none");
 			}
